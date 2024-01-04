@@ -24,8 +24,11 @@ function addTask() {
   deleteBtn.textContent = "delete";
   task.append(deleteBtn);
 
+  if (!taskList.children.length) {
+    taskList.addEventListener("click", deleteTask);
+  }
+
   taskList.append(task);
-  taskList.addEventListener("click", deleteTask);
 }
 
 function deleteTask({ target }) {
